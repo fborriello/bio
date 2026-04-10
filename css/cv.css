@@ -356,64 +356,227 @@
 /* ── Print ────────────────────────── */
 
 @media print {
-  .no-print {
-    display: none !important;
+  @page {
+    size: A4;
+    margin: 0;
   }
+
+  .no-print { display: none !important; }
 
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    box-shadow: none !important;
   }
 
   html, body {
-    background: #fff !important;
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
+    background: white !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
 
-  /* Override design tokens for clean black-on-white print */
-  [data-theme],
-  [data-theme="dark"],
-  [data-theme="light"] {
-    --color-bg:          #ffffff;
-    --color-bg-card:     #f8f8f8;
-    --color-bg-card-alt: #f0f0f0;
-    --color-border:      #d1d5db;
-    --color-text:        #111827;
-    --color-text-muted:  #374151;
-    --color-text-subtle: #6b7280;
-    --color-accent:      #2563eb;
-    --color-accent-2:    #0891b2;
-    --shadow-sm: none;
-    --shadow-md: none;
-    --shadow-lg: none;
-    --shadow-accent: none;
-    --shadow-card-hover: none;
+  /* ── Flatten tokens ── */
+  [data-theme], [data-theme="dark"], [data-theme="light"] {
+    --color-bg: white;
+    --color-bg-card: white;
+    --color-bg-card-alt: white;
+    --color-border: #d1d5db;
+    --color-text: #111;
+    --color-text-muted: #333;
+    --color-text-subtle: #666;
+    --color-accent: #1d4ed8;
+    --color-accent-2: #0e7490;
+    --font-sans: Arial, Helvetica, sans-serif;
+    --font-mono: Arial, Helvetica, sans-serif;
   }
 
-  .cv-page {
-    padding: 0;
-  }
+  .cv-page { padding: 0 !important; }
+  .cv-wrap { max-width: 100% !important; padding: 1.5cm 2cm 0 !important; }
+  .cv-sidebar { margin-bottom: 0 !important; }
+  .cv-block:last-child { margin-bottom: 0 !important; }
 
-  .cv-wrap {
-    max-width: 100%;
-    padding: 0 1cm;
-  }
-
+  /* ── Header ── */
   .cv-header {
-    border-radius: 0;
-    page-break-inside: avoid;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 0 10pt !important;
+    margin-bottom: 12pt !important;
+    border-bottom: 2pt solid #1d4ed8 !important;
   }
 
+  .cv-name {
+    font-size: 22pt !important;
+    letter-spacing: -0.3pt !important;
+    margin-bottom: 2pt !important;
+  }
+
+  .cv-title {
+    font-size: 11pt !important;
+    color: #444 !important;
+    margin-bottom: 5pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+
+  .cv-contacts { gap: 0 !important; flex-wrap: wrap !important; }
+
+  .cv-chip {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-right: 14pt !important;
+    margin-bottom: 2pt !important;
+    font-size: 9pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: #444 !important;
+  }
+  .cv-chip svg    { display: none !important; }
+  .cv-chip--plain { color: #666 !important; }
+
+  /* ── Body: single column, main then sidebar ── */
+  .cv-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .cv-main    { order: 1 !important; }
   .cv-sidebar {
-    position: static;
+    order: 2 !important;
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14pt !important;
+    padding-top: 10pt !important;
+    margin-top: 6pt !important;
+    border-top: 1pt solid #d1d5db !important;
   }
 
-  .cv-entry,
+  /* ── Strip cards ── */
   .cv-block {
-    page-break-inside: avoid;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 12pt !important;
+    page-break-inside: auto !important;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  .cv-block__title {
+    font-size: 8pt !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #1d4ed8 !important;
+    border-bottom: 0.75pt solid #1d4ed8 !important;
+    padding-bottom: 3pt !important;
+    margin-bottom: 8pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
   }
+
+  /* ── Summary ── */
+  .cv-summary {
+    font-size: 9.5pt !important;
+    line-height: 1.6 !important;
+    color: #222 !important;
+  }
+  .cv-summary strong { color: #111 !important; }
+
+  /* ── Timeline ── */
+  .cv-timeline { gap: 0 !important; }
+
+  .cv-entry {
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding: 7pt 0 !important;
+    border-bottom: 0.5pt solid #e5e7eb !important;
+    page-break-inside: avoid !important;
+  }
+
+  .cv-entry:first-child { padding-top: 4pt !important; }
+  .cv-entry:last-child  { border-bottom: none !important; }
+
+  .cv-entry__head {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 8pt !important;
+    margin-bottom: 3pt !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .cv-entry__role {
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    margin-bottom: 1pt !important;
+  }
+
+  .cv-entry__company {
+    font-size: 9pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: #1d4ed8 !important;
+    font-weight: 400 !important;
+  }
+
+  .cv-entry__date {
+    font-size: 8.5pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: #555 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cv-bullets { gap: 0 !important; margin-top: 3pt !important; }
+
+  .cv-bullets li {
+    font-size: 9pt !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    padding-left: 12pt !important;
+    margin-bottom: 2pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+  .cv-bullets li::before { color: #999 !important; }
+
+  /* ── Tags ── */
+  .cv-tags { gap: 3pt !important; }
+  .tag {
+    font-size: 8pt !important;
+    padding: 1.5pt 5pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 0.5pt solid #bfdbfe !important;
+    border-radius: 3pt !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* ── Languages ── */
+  .cv-lang-list { gap: 5pt !important; }
+  .cv-lang__name  { font-size: 9pt !important; color: #111 !important; font-family: Arial, Helvetica, sans-serif !important; }
+  .cv-lang__level {
+    font-size: 8pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    padding: 1.5pt 5pt !important;
+  }
+  .cv-lang__level--native       { background: #eff6ff !important; color: #1d4ed8 !important; border-color: #bfdbfe !important; }
+  .cv-lang__level--professional { background: #ecfeff !important; color: #0e7490 !important; border-color: #a5f3fc !important; }
+  .cv-lang__level--elementary   { background: #f9fafb !important; color: #555 !important; border-color: #d1d5db !important; }
+
+  /* ── Lists (certs, pubs) ── */
+  .cv-list { gap: 4pt !important; }
+  .cv-list li {
+    font-size: 9pt !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    padding-left: 12pt !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+  .cv-list li::before { color: #1d4ed8 !important; top: 1pt !important; font-size: 9pt !important; }
+
+  a { color: inherit !important; text-decoration: none !important; }
 }
