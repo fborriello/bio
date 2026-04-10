@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabio Borriello — CV</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Anti-FOUC: apply theme before CSS renders -->
+  <script>
+    (function () {
+      var s = localStorage.getItem('theme');
+      var p = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', s || p);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/cv.css" />
+</head>
+<body>
+
+  <!-- ── Top bar ─────────────────────────────────────────── -->
+  <header class="cv-topbar no-print">
+    <div class="container cv-topbar__inner">
+      <a href="index.html" class="cv-topbar__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to portfolio
+      </a>
+      <div class="cv-topbar__actions">
+        <button class="btn btn--outline btn--sm" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+          Print / Save PDF
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── CV Content ──────────────────────────────────────── -->
+  <main class="cv-page">
+    <div class="cv-wrap container">
+
+      <!-- Header -->
+      <div class="cv-header">
+        <div class="cv-header__text">
+          <h1 class="cv-name">Fabio Borriello</h1>
+          <p class="cv-title">Engineering Manager</p>
+          <div class="cv-contacts">
+            <a href="mailto:borriello.fabio@gmail.com" class="cv-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              borriello.fabio@gmail.com
+            </a>
+            <span class="cv-chip cv-chip--plain">Rome, Italy</span>
+            <a href="https://linkedin.com/in/fabio-borriello" target="_blank" rel="noopener" class="cv-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/fabio-borriello
+            </a>
+            <a href="https://github.com/fborriello" target="_blank" rel="noopener" class="cv-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              github.com/fborriello
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body: sidebar + main -->
+      <div class="cv-body">
+
+        <!-- ── Sidebar ─────────────────────────────── -->
+        <aside class="cv-sidebar">
+
+          <section class="cv-block">
+            <h2 class="cv-block__title">Skills</h2>
+            <div class="cv-tags">
+              <span class="tag">Engineering Management</span>
+              <span class="tag">Team Leadership</span>
+              <span class="tag">Solution Architecture</span>
+              <span class="tag">Systems Design</span>
+              <span class="tag">Agile / Scrum</span>
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">A/B Testing</span>
+              <span class="tag">UML</span>
+              <span class="tag">REST / SOAP</span>
+            </div>
+          </section>
+
+          <section class="cv-block">
+            <h2 class="cv-block__title">Languages</h2>
+            <ul class="cv-lang-list">
+              <li>
+                <span class="cv-lang__name">Italian</span>
+                <span class="cv-lang__level cv-lang__level--native">Native</span>
+              </li>
+              <li>
+                <span class="cv-lang__name">English</span>
+                <span class="cv-lang__level cv-lang__level--professional">Professional</span>
+              </li>
+              <li>
+                <span class="cv-lang__name">French</span>
+                <span class="cv-lang__level cv-lang__level--elementary">Elementary</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="cv-block">
+            <h2 class="cv-block__title">Certifications</h2>
+            <ul class="cv-list">
+              <li>Google Project Management Certificate</li>
+              <li>AI For Work: 12 Ways to Do Better Work, Faster</li>
+              <li>Claude Code Masterclass</li>
+              <li>Project Initiation: Starting a Successful Project</li>
+              <li>Secure Development Training</li>
+            </ul>
+          </section>
+
+          <section class="cv-block">
+            <h2 class="cv-block__title">Publications</h2>
+            <ul class="cv-list">
+              <li>The impact on the Hotels.com development lifecycle introduced by BULL</li>
+              <li>How to Transform Any Type of Java Bean With BULL</li>
+              <li>Work proactively: BULL</li>
+              <li>How Expedia Is Getting Rid of Java Bean Transformers</li>
+            </ul>
+          </section>
+
+        </aside>
+
+        <!-- ── Main ───────────────────────────────── -->
+        <div class="cv-main">
+
+          <section class="cv-block">
+            <h2 class="cv-block__title">Summary</h2>
+            <p class="cv-summary">
+              Engineering Manager with <strong>20+ years in software engineering</strong>, including
+              7+ years leading cross-functional, globally distributed teams in complex product-driven
+              environments. Specialises in building high-performing teams, delivering large-scale
+              high-visibility initiatives, and aligning engineering execution with business strategy.
+              Passionate about mentoring engineers, open source, and fostering team growth.
+            </p>
+          </section>
+
+          <!-- Experience -->
+          <section class="cv-block">
+            <h2 class="cv-block__title">Experience</h2>
+            <div class="cv-timeline">
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Manager, Software Development Engineering</h3>
+                    <span class="cv-entry__company">Expedia Group</span>
+                  </div>
+                  <span class="cv-entry__date">Jun 2022 – Present</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Led cross-functional engineering teams across web and mobile, managing up to 16 engineers and owning delivery, team health, and engineering execution.</li>
+                  <li>Delivered One Key Credit Card, one of Expedia's most strategic and high-visibility initiatives in 2024, coordinating teams across engineering, product, and business.</li>
+                  <li>Built a high-trust engineering culture through continuous feedback, hiring, performance reviews, and career development programmes.</li>
+                  <li>Partnered with Product and Business leadership to translate strategic goals into clear technical roadmaps and predictable delivery.</li>
+                  <li>Provided architectural oversight across distributed systems, ensuring reliability, scalability, and long-term sustainability.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Software Development Engineer II</h3>
+                    <span class="cv-entry__company">Expedia Group</span>
+                  </div>
+                  <span class="cv-entry__date">Sep 2021 – May 2022</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Built backend services within a large-scale service-oriented architecture supporting high-traffic travel platforms.</li>
+                  <li>Helped design and develop internal A/B testing tooling, enabling data-driven experiments at scale across the platform.</li>
+                  <li>Worked in modern CI/CD environments with a strong focus on reliability and automated testing.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Senior Software Analyst</h3>
+                    <span class="cv-entry__company">FAO — Food and Agriculture Organization of the UN</span>
+                  </div>
+                  <span class="cv-entry__date">Sep 2020 – Oct 2021</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Led modernisation of a portfolio of legacy enterprise applications, directing migration from Adobe Flash and other deprecated technologies.</li>
+                  <li>Coordinated cross-functional collaboration between IT teams and business units to define long-term technical solutions (SaaS, PaaS, custom dev).</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Senior Software Engineer</h3>
+                    <span class="cv-entry__company">Expedia, Inc.</span>
+                  </div>
+                  <span class="cv-entry__date">Jan 2018 – Sep 2020</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Designed and developed backend services for high-traffic travel platforms used by millions of users globally.</li>
+                  <li>Delivered customer-facing features within cross-functional teams using TDD, CI pipelines, and automated testing.</li>
+                  <li>Contributed to architecture decisions and continuous improvement of engineering practices.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Enterprise Solution Architect</h3>
+                    <span class="cv-entry__company">Altran</span>
+                  </div>
+                  <span class="cv-entry__date">Oct 2017 – Dec 2017</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Designed system architecture for mission-critical platforms, including a radar command-and-control system for a major Italian aerospace company.</li>
+                  <li>Produced foundational UML models, architectural designs, and skeleton projects for core components.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">IT Solutions Architect</h3>
+                    <span class="cv-entry__company">FAO</span>
+                  </div>
+                  <span class="cv-entry__date">Jan 2017 – Oct 2017</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Led analysis and design of enterprise IT solutions, producing solution proposals, architectural documentation, and project plans.</li>
+                  <li>Managed the IT request intake and governance workflow leading to CIO approval of new initiatives.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Senior Software Engineer</h3>
+                    <span class="cv-entry__company">FAO</span>
+                  </div>
+                  <span class="cv-entry__date">Jul 2008 – Dec 2016</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Analyst and programmer for a wide range of enterprise systems in an international UN environment, covering the full project lifecycle.</li>
+                  <li>Covered Project Manager role in multiple projects, coordinating teams of up to 3 engineers.</li>
+                  <li>Primary stack: Java, Spring, Filenet, SharePoint, REST/SOAP web services, SQL, Hibernate.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Senior Analyst &amp; Programmer</h3>
+                    <span class="cv-entry__company">SOFTLAB S.p.A.</span>
+                  </div>
+                  <span class="cv-entry__date">Aug 2007 – Jun 2008</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>Maintenance and development of Java/J2EE applications; Project Manager for the "Fídio" project (10-person team).</li>
+                  <li>Taught Java/J2EE to a class of 15 engineers for Sun certification.</li>
+                </ul>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">IT System Administrator &amp; Junior Analyst</h3>
+                    <span class="cv-entry__company">Telecom Italia</span>
+                  </div>
+                  <span class="cv-entry__date">Aug 2006 – Jul 2007</span>
+                </div>
+                <ul class="cv-bullets">
+                  <li>UML modelling for new TIM services; development and testing within a 40-person enterprise project on Bea WebLogic / Oracle DB.</li>
+                  <li>Software development for telecom services using EJBs, PL/SQL procedures, and XML-based integrations.</li>
+                </ul>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="cv-block">
+            <h2 class="cv-block__title">Education</h2>
+            <div class="cv-timeline">
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Master's Degree — Information Engineering</h3>
+                    <span class="cv-entry__company">Università degli Studi dell'Aquila</span>
+                  </div>
+                  <span class="cv-entry__date">2008</span>
+                </div>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Master's Degree — Computer Science</h3>
+                    <span class="cv-entry__company">Università degli Studi dell'Aquila</span>
+                  </div>
+                  <span class="cv-entry__date">2005 – 2007</span>
+                </div>
+              </div>
+
+              <div class="cv-entry">
+                <div class="cv-entry__head">
+                  <div>
+                    <h3 class="cv-entry__role">Bachelor's Degree — Computer Science</h3>
+                    <span class="cv-entry__company">Università degli Studi dell'Aquila</span>
+                  </div>
+                  <span class="cv-entry__date">2000 – 2004</span>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+        </div><!-- /.cv-main -->
+      </div><!-- /.cv-body -->
+    </div><!-- /.cv-wrap -->
+  </main>
+
+  <script type="module">
+    import { initTheme } from './js/theme.js';
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
+</body>
+</html>
