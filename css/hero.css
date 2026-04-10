@@ -234,6 +234,7 @@
   .hero__social  { display: flex; justify-content: center; }
   .hero__content { order: 0; }
   .hero__visual  { order: 1; }
+  .hero__scroll  { display: none; }
 
   .terminal {
     max-width: 380px;
