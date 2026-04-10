@@ -1,0 +1,58 @@
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+
+/* Section label — e.g. <about /> */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+/* Section heading */
+.section-title {
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+/* Section subtitle / lead */
+.section-lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  line-height: 1.75;
+}
+
+/* Gradient text helper */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mono text helper */
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Centered text block */
+.text-center {
+  text-align: center;
+}
+
+.text-center .section-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
