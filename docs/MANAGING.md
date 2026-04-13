@@ -10,16 +10,17 @@ The site is plain HTML / CSS / JS — no build step, no framework, no package ma
 1. [Project Structure](#project-structure)
 2. [Updating Your Bio](#updating-your-bio)
 3. [Updating the Stats](#updating-the-stats)
-4. [Updating the Skills Section](#updating-the-skills-section)
-5. [Adding / Editing Work Experience](#adding--editing-work-experience)
-6. [Adding / Removing Projects](#adding--removing-projects)
-7. [Adding Articles](#adding-articles)
-8. [Updating the Contact Details](#updating-the-contact-details)
-9. [Replacing the Profile Photo](#replacing-the-profile-photo)
-10. [Replacing the CV / Resume](#replacing-the-cv--resume)
-11. [Theming and Colors](#theming-and-colors)
-12. [Deploying Changes](#deploying-changes)
-13. [Setting Up the Contact Form](#setting-up-the-contact-form)
+4. [Updating the Hero Typewriter Text](#updating-the-hero-typewriter-text)
+5. [Updating the Skills Section](#updating-the-skills-section)
+6. [Adding / Editing Work Experience](#adding--editing-work-experience)
+7. [Adding / Removing Projects](#adding--removing-projects)
+8. [Adding Articles](#adding-articles)
+9. [Updating the Contact Details](#updating-the-contact-details)
+10. [Replacing the Profile Photo](#replacing-the-profile-photo)
+11. [Replacing the CV / Resume](#replacing-the-cv--resume)
+12. [Theming and Colors](#theming-and-colors)
+13. [Deploying Changes](#deploying-changes)
+14. [Setting Up the Contact Form](#setting-up-the-contact-form)
 
 ---
 
@@ -62,16 +63,47 @@ Edit the `<p>` paragraphs directly. Wrap key phrases in `<strong>` to bold them.
 
 ## Updating the Stats
 
-The three animated counters in the About section are driven by `data-count` attributes.
+The About section shows **four animated stat cards** in a 2×2 grid.
 Find the `<div class="about__stats">` block and update the numbers:
 
 ```html
-<div class="stat-card__number" data-count="20" data-suffix="+">0+</div>
+<div class="stat-card">
+  <div class="stat-card__number" data-count="16">0</div>
+  <div class="stat-card__label">Engineers Led</div>
+  <div class="stat-card__sub">simultaneously</div>  <!-- optional subtitle -->
+</div>
 ```
 
 - `data-count` — the target number the counter animates to
 - `data-suffix` — optional suffix appended after the number (e.g. `+`, `k`)
-- The text content (`0+`) is the initial display before JS runs
+- The text content (`0`) is the initial display before JS runs
+- `stat-card__sub` — optional small italic line below the label (used to add context like "simultaneously")
+
+Current cards (top-left → top-right → bottom-left → bottom-right):
+
+| Card | Value | Label | Sub |
+|---|---|---|---|
+| Engineers Led | 16 | Engineers Led | simultaneously |
+| Teams Built | 4 | Teams Built | simultaneously |
+| Years Exp. | 20+ | Years Exp. | — |
+| Projects | 10+ | Projects | — |
+
+---
+
+## Updating the Hero Typewriter Text
+
+The cycling roles under your name are defined in `js/typewriter.js`:
+
+```js
+const roles = [
+  'Engineering Manager',
+  'Open Source Enthusiast',
+  'Team Builder',
+  'People & Tech Leader',
+];
+```
+
+Edit the array to add, remove, or reorder phrases. Each string is typed out and deleted in sequence.
 
 ---
 
@@ -91,7 +123,20 @@ Find the correct slug for any technology at [simpleicons.org](https://simpleicon
 The hex color is the brand color shown on that page (without the `#`).
 
 To **add a new category**, copy an entire `.skill-card` block and change the title and icons.
-Remember to also add a new column to `css/skills.css` if you need more than 3 columns.
+The grid handles wrapping automatically (3 columns on desktop, 2 on tablet, 1 on mobile) — no CSS changes needed.
+
+To **reorder categories**, cut and paste `.skill-card` blocks within `<div class="skills__grid">`.
+The visual order on the page matches the HTML source order.
+
+Current category order (row 1 → row 2):
+
+| Row 1 | Row 2 |
+|---|---|
+| Leadership | Tools |
+| Backend | Cloud & DevOps |
+| APIs | Frontend |
+
+> **Note:** Some icons with multi-color logos (e.g. Slack) can't be loaded from the simpleicons CDN — use an inline SVG instead. See the Slack icon in the Leadership card as a reference.
 
 ---
 
@@ -125,11 +170,22 @@ Copy the existing `.timeline-item` block and paste it **below** the current one 
 The first (topmost) entry automatically gets the animated pulse dot.
 All subsequent entries get a static dot.
 
+### Show or hide an entry
+
+Entries can be hidden without deleting them by adding `style="display:none"` to the `.timeline-item`:
+
+```html
+<div class="timeline-item reveal" style="display:none">
+```
+
+Remove the attribute to make it visible again. Useful for drafting a future role before its start date.
+
 ---
 
 ## Adding / Removing Projects
 
 Projects are inside `<div class="projects__grid">` in `index.html`.
+The grid is **2 columns** (2×2 layout for 4 cards), dropping to 1 column on mobile.
 
 ### Add a project
 
@@ -137,12 +193,29 @@ Copy an existing `.project-card` block. Key fields to update:
 
 | Field | Where |
 |---|---|
-| Cover image/gradient | `style="--cover-gradient: linear-gradient(…)"` or `src="…"` on the cover element |
+| Cover image/gradient | `src="…"` on the `<img>` or `style="--cover-gradient: …"` on the gradient div |
 | Title | `<h3 class="project-card__title">` |
 | Description | `<p class="project-card__desc">` |
 | Tags | `<span class="tag">` elements |
-| GitHub link | `href` on the `.project-card__link` anchor |
+| Link | `href` on the `.project-card__link` anchor |
 | Stars count | `.project-card__stars` span (optional, remove if not applicable) |
+
+### Cover image types
+
+**Photo cover** (full-bleed, e.g. One Key Cards):
+```html
+<img src="assets/images/your-image.png" alt="Description" class="project-card__cover cover--photo" loading="eager">
+```
+
+**Logo cover** (contained on white, e.g. BULL):
+```html
+<img src="https://…" alt="Description" class="project-card__cover" loading="eager">
+```
+
+**Gradient placeholder** (no image):
+```html
+<div class="project-card__cover project-card__cover--gradient" style="--cover-gradient: linear-gradient(135deg, #1a2a1a, #2d4d2d)" aria-hidden="true">📘</div>
+```
 
 ### Mark a project as featured
 
