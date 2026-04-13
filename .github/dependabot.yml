@@ -12,3 +12,10 @@ updates:
       - github-actions-lib
     commit-message:
       prefix: "config"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
