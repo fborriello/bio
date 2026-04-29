@@ -9,17 +9,23 @@ export const experiences = [
     hidden: true,
     showInIndex: true,
     index: {
-      role: 'Lead Engineer',
+      role: 'Frontend Lead Engineer – Travelthings',
       date: '2026 – Present',
       location: 'Italy · Remote',
     },
     cv: {
-      role: 'Lead Engineer',
+      role: 'Frontend Lead Engineer – Travelthings',
       date: '2026 – Present',
     },
     company: 'eDreams ODIGEO',
-    bullets: [],
-    tags: ['Engineering Management', 'Technical Leadership', 'Stakeholder Management', 'Distributed Systems', 'Agile Delivery'],
+    bullets: [
+      'Leading a cross-functional agile team of frontend engineers within the Travelthings vertical, owning technical strategy, delivery, and team health.',
+      'Driving hands-on technical leadership across a modern frontend stack — React, GraphQL, Jest, Cypress, and CI/CD pipelines.',
+      'Translating product requirements into incremental, customer-facing deliverables through clear technical design and iterative execution.',
+      'Managing performance, goal-setting, and career growth for team members; actively involved in recruiting and onboarding.',
+      'Collaborating cross-functionally with Product, Architecture, and Data Science to define and execute the team\'s technical roadmap.',
+    ],
+    tags: ['Frontend Leadership', 'React', 'GraphQL', 'Engineering Management', 'Agile Delivery', 'CI/CD'],
   },
   {
     hidden: false,
