@@ -19,13 +19,13 @@ export const experiences = [
     },
     company: 'eDreams ODIGEO',
     bullets: [
-      'Leads the Travelthings frontend engineering team end-to-end, owning technical strategy, delivery, and team health across a modern React, GraphQL, TypeScript, Jest, and Cypress stack with fully automated CI/CD pipelines.',
+      'Leads the Travelthings frontend engineering team end-to-end, owning technical strategy, delivery, and team health across a modern React, TypeScript, Jest, and Cypress stack with fully automated CI/CD pipelines.',
       'Drives product delivery by translating business requirements into incremental customer-facing releases, accountable for sprint commitments, quality gates, and production stability.',
       'Manages the full people agenda: performance conversations, career growth planning, goal setting, and hiring, building a team where engineers feel real ownership over their work.',
       'Shapes the technical roadmap in close partnership with Product, Architecture, and Data Science, acting as the primary engineering interface to leadership and cross-vertical stakeholders.',
       'Champions engineering standards and a culture of continuous improvement across the broader frontend guild within the Travelthings vertical.',
     ],
-    tags: ['Frontend Leadership', 'React', 'GraphQL', 'Engineering Management', 'Agile Delivery', 'CI/CD'],
+    tags: ['Frontend Leadership', 'React', 'TypeScript', 'Engineering Management', 'Agile Delivery', 'CI/CD'],
   },
   {
     hidden: false,
